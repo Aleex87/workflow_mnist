@@ -1,5 +1,7 @@
 # workflow_mnist
 
+___________ EDA AND TRANING __________________
+
 ## Model — Digits Classification (MLP)
 
 This part of the project focuses on building and validating a PyTorch model
@@ -100,3 +102,10 @@ x_norm = x_raw / 16.0
   "prediction": int (0–9),
   "confidence": float (0–1)
 }
+
+______________ API _______________________
+
+______________ DEPLOY ____________________
+
+______________STREAMLIT FRONTEND_______________________
+
