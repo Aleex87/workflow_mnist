@@ -1,0 +1,7 @@
+{
+  "model_name": "DigitsMLP",
+  "input_dim": 64,
+  "num_classes": 10,
+  "normalization": "x_norm = x_raw / 16.0",
+  "expected_input": "features: list[float] length 64, raw range [0,16] (API normalizes)"
+}
