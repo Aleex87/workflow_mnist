@@ -6,7 +6,7 @@ Responsibilities:
 - Load exported TorchScript model
 - Define POST /predict endpoint
 """
-from fastAPI import FastAPI
+from fastapi import FastAPI
 import torch
 from os import path
 
