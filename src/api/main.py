@@ -6,12 +6,12 @@ Responsibilities:
 - Load exported TorchScript model
 - Define POST /predict endpoint
 """
-import fastAPI 
+from fastAPI import FastAPI
 import torch
 from os import path
- 
 
 
+app = FastAPI()
 
 
 def main():

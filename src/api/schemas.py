@@ -5,3 +5,4 @@ Responsibilities:
 - Define input schema for prediction
 - Define response schema
 """
+
