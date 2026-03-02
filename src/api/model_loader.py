@@ -11,7 +11,10 @@ import torch
 arifact_path = Path(__file__).resolve().parents[2] / "artifacts"
 model_path = arifact_path / "digits_mlp.ts"
 
-def loading_model():
+def loading_model(model, input_tensor):
     model = torch.jit.load(str(model_path), map_location="cpu")
     model.eval()
-    return model
+    with torch.no_grad():
+        output = model(input_tensor)
+
+    return output
