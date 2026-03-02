@@ -8,13 +8,18 @@ Responsibilities:
 from pathlib import Path
 import torch
 
+
 arifact_path = Path(__file__).resolve().parents[2] / "artifacts"
 model_path = arifact_path / "digits_mlp.ts"
 
-def loading_model(model, input_tensor):
+def loading_model():
     model = torch.jit.load(str(model_path), map_location="cpu")
     model.eval()
+    return model 
+
+#this one is to turn of the gradietns since we are done with the traning and are using a finished model
+
+def pred(model, input_tensor):
     with torch.no_grad():
         output = model(input_tensor)
-
     return output
