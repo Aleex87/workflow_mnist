@@ -13,9 +13,9 @@ COPY pyproject.toml uv.lock ./
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=cache,target=/root/.cache/pip \
-    uv sync --no-de
-    
-COPY ..
+    uv sync --no-dev
+
+COPY . .
 
 EXPOSE 8000
 
