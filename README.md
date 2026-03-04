@@ -1,4 +1,4 @@
-# workflow_mnist
+# Workflow_mnist
 
 # Digits Classification API
 
