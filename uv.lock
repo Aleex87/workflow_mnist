@@ -2704,16 +2704,23 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
-    { name = "matplotlib" },
     { name = "numpy" },
     { name = "pydantic" },
     { name = "scikit-learn" },
-    { name = "torch" },
     { name = "uvicorn" },
+]
+
+[package.optional-dependencies]
+cpu = [
+    { name = "torch" },
+]
+gpu = [
+    { name = "torch" },
 ]
 
 [package.dev-dependencies]
 dev = [
+    { name = "matplotlib" },
     { name = "notebook" },
     { name = "pytest" },
 ]
@@ -2721,16 +2728,18 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.132.0" },
-    { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "numpy", specifier = ">=2.4.2" },
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "scikit-learn", specifier = ">=1.8.0" },
-    { name = "torch", specifier = ">=2.10.0" },
+    { name = "torch", marker = "extra == 'cpu'", specifier = ">=2.10.0" },
+    { name = "torch", marker = "extra == 'gpu'", specifier = ">=2.10.0" },
     { name = "uvicorn", specifier = ">=0.41.0" },
 ]
+provides-extras = ["cpu", "gpu"]
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "notebook", specifier = ">=7.5.3" },
     { name = "pytest", specifier = ">=9.0.2" },
 ]
