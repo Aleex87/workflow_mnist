@@ -113,6 +113,15 @@ that goes in how to return the predtiocon and confidence. In main is the post an
 
 ______________ DEPLOY ____________________
 
-In order to deploy it with docker we created a dockerfile and the first time we buildt it took almost 30 min just for the container. Appertenly that is beacsue the cuda wheels needed fot this the gpu and we did first are huge and take up alot of space. 
+In order to deploy it with docker we created a dockerfile and the first time we buildt it took almost 30 min just for the container. Appertenly that is beacsue the cuda wheels needed fot this the gpu and we did first are huge and take up alot of space. After alot of back and forth with chatgpt it suggeded to make on base and then one for a cpu build and one fot the gpu build so one can choose. However i dont think the gpu verison is needed and the cpu version worked. 
+
+In order to deploy this one have to choose which version one want to spin up, the gpu version or the cpu verson. 
+
+To start docker: 
+docker build --target cpu -t mnist-api:cpu
+docker build --target gpu -t mnist-api:gpu
 
 
+To start the api: 
+docker run --rm -p 8000:8000 mnist-api:cpu
+docker run --rm --gpus all -p 8000:8000 mnist-api:gpu
