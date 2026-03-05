@@ -274,8 +274,6 @@ x_norm = x_raw / 16.0
 
 ______________ API _______________________
 
-<<<<<<< HEAD
-=======
 So for the api part i first made some paths to the model and artifacts. Then there are two funktions, the first just loads in the model and puts it on the cpu since it is a finished
 model and the traning is done, and for the same reason the second funktion turns of the gradietns calcuations since that is only needed in the traning fase. In the schemas the amount of pixels is 
 that goes in how to return the predtiocon and confidence. In main is the post and fastapi application. I did have some trouble with the request and apperenlty i needed the unqueeze to add a batch dimention since the the model needs a batch size and features according to chatgpt. Then we take the raw output and make it into probabilitys with softmax() and then using argmax to find the class. Then we do teh conficede and return the confidence and predicted class. 
@@ -285,7 +283,6 @@ that goes in how to return the predtiocon and confidence. In main is the post an
 ______________ DEPLOY ____________________
 
 In order to deploy it with docker we created a dockerfile and the first time we buildt it took almost 30 min just for the container. Appertenly that is beacsue the cuda wheels needed fot this the gpu and we did first are huge and take up alot of space. After alot of back and forth with chatgpt it suggeded to make on base and then one for a cpu build and one fot the gpu build so one can choose. However i dont think the gpu verison is needed and the cpu version worked. 
->>>>>>> docker-readme
 
 In order to deploy this one have to choose which version one want to spin up, the gpu version or the cpu verson. 
 
